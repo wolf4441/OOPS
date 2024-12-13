@@ -1,0 +1,25 @@
+// Outer class
+class OuterClass {
+ void display() {
+ System.out.println("OuterClass display");
+ }
+ // Inner class
+ class InnerClass {
+ void display() {
+ System.out.println("InnerClass display");
+ }
+ }
+}
+// Main class
+public class MainClass {
+ public static void main(String[] args) {
+ // Create an instance of the outer class
+ OuterClass outerObj = new OuterClass();
+ // Call the display method of the outer class
+ outerObj.display();
+ // Create an instance of the inner class using the outer class instance
+ OuterClass.InnerClass innerObj = outerObj.new InnerClass();
+ // Call the display method of the inner class
+ innerObj.display();
+ }
+} 
