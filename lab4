@@ -1,0 +1,58 @@
+public class MyPoint {
+ private int x;
+ private int y;
+ public MyPoint() {
+ this.x = 0;
+ this.y = 0;
+ }
+ public MyPoint(int x, int y) {
+ this.x = x;
+ this.y = y;
+ }
+ public void setXY(int x, int y) {
+ this.x = x;
+ this.y = y;
+ }
+ public int[] getXY() {
+ int[] coordinates = {x, y};
+ return coordinates;
+ }
+ public String toString() {
+ return "(" + x + ", " + y + ")";
+ }
+ public double distance(int x, int y) {
+ int xDiff = this.x - x;
+ int yDiff = this.y - y;
+ return Math.sqrt(xDiff * xDiff + yDiff * yDiff);
+ }
+ public double distance(MyPoint another) {
+ int xDiff = this.x - another.x;
+ int yDiff = this.y - another.y;
+ return Math.sqrt(xDiff * xDiff + yDiff * yDiff);
+ }
+ public double distance() {
+ return Math.sqrt(x * x + y * y);
+ }
+}
+public class TestMyPoint {
+ public static void main(String[] args) {
+ MyPoint point1 = new MyPoint();
+ MyPoint point2 = new MyPoint(3, 4);
+ // Testing setXY() and getXY()
+ point1.setXY(1, 2);
+ int[] point1Coordinates = point1.getXY();
+ System.out.println("Point 1 coordinates: (" + point1Coordinates[0] + ", " + point1Coordinates[1] + ")");
+ // Testing toString()
+ System.out.println("Point 1: " + point1.toString());
+ System.out.println("Point 2: " + point2.toString());
+ // Testing distance(int x, int y)
+ double distance1 = point1.distance(5, 6);
+ System.out.println("Distance between Point 1 and (5, 6): " + distance1);
+ // Testing distance(MyPoint another)
+ double distance2 = point1.distance(point2);
+ System.out.println("Distance between Point 1 and Point 2: " + distance2);
+ // Testing distance() - distance to origin (0, 0)
+ double distance3 = point2.distance();
+ System.out.println("Distance between Point 2 and the origin: " + distance3);
+ }
+}
